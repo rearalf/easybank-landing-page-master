@@ -1,0 +1,98 @@
+---
+import { Image } from 'astro:assets'
+import Logo from '../assets/logo.svg'
+import IconHamburger from '../assets/icon-hamburger.svg'
+import BasicButton from './BasicButton.astro'
+---
+
+<div
+	class="bg-dark-blue w-screen h-screen opacity-60 fixed z-0 lg:hidden hidden"
+	id="navbarCollapseBackgroudn"
+>
+</div>
+<header
+	class="w-full relative z-10 bg-white lg:flex lg:gap-20 xl:gap-52 lg:px-20 xl:px-40 lg:items-center lg:min-h-[80px]"
+>
+	<div class="flex justify-between px-6 py-5 lg:p-0 relative z-10">
+		<a href="#">
+			<Image src={Logo} alt="EasyBank" class="w-36 h-5" />
+		</a>
+		<button class="lg:hidden" id="collapseButton">
+			<Image src={IconHamburger} alt="Hamburger icon" class="w-4 h-4" />
+		</button>
+	</div>
+	<nav
+		class="absolute z-10 translate-y-6 w-full justify-center lg:hidden hidden"
+		id="navbarCollapse"
+	>
+		<ul class="flex flex-col bg-white w-80 justify-center items-center gap-8 rounded py-9">
+			<li>
+				<a href="#">Home</a>
+			</li>
+			<li>
+				<a href="#">About</a>
+			</li>
+			<li>
+				<a href="#">Contact</a>
+			</li>
+			<li>
+				<a href="#">Blog</a>
+			</li>
+			<li>
+				<a href="#"> Careers</a>
+			</li>
+		</ul>
+	</nav>
+	<nav class="hidden lg:flex flex-1 justify-between items-center lg:min-h-[80px]">
+		<ul class="flex items-center gap-8 lg:min-h-[80px]">
+			<li class="relative flex items-center h-full lg:min-h-[80px]">
+				<a
+					href="#"
+					class="text-grayish-blue font-customFont font-semibold text-sm after:content-[''] hover:after:border-b-[3px] after:border-lime-green after:w-full after:absolute after:-bottom-0 after:left-0 h-full flex items-center"
+					>Home</a
+				>
+			</li>
+			<li class="relative flex items-center h-full lg:min-h-[80px]">
+				<a
+					href="#"
+					class="text-grayish-blue font-customFont font-semibold text-sm after:content-[''] hover:after:border-b-[3px] after:border-lime-green after:w-full after:absolute after:-bottom-0 after:left-0 h-full flex items-center"
+					>About</a
+				>
+			</li>
+			<li class="relative flex items-center h-full lg:min-h-[80px]">
+				<a
+					href="#"
+					class="text-grayish-blue font-customFont font-semibold text-sm after:content-[''] hover:after:border-b-[3px] after:border-lime-green after:w-full after:absolute after:-bottom-0 after:left-0 h-full flex items-center"
+					>Contact</a
+				>
+			</li>
+			<li class="relative flex items-center h-full lg:min-h-[80px]">
+				<a
+					href="#"
+					class="text-grayish-blue font-customFont font-semibold text-sm after:content-[''] hover:after:border-b-[3px] after:border-lime-green after:w-full after:absolute after:-bottom-0 after:left-0 h-full flex items-center"
+					>Blog</a
+				>
+			</li>
+			<li class="relative flex items-center h-full lg:min-h-[80px]">
+				<a
+					href="#"
+					class="text-grayish-blue font-customFont font-semibold text-sm after:content-[''] hover:after:border-b-[3px] after:border-lime-green after:w-full after:absolute after:-bottom-0 after:left-0 h-full flex items-center"
+				>
+					Careers</a
+				>
+			</li>
+		</ul>
+		<BasicButton title="Request Invite" />
+	</nav>
+</header>
+
+<script>
+	const collapseButto = document.getElementById('collapseButton')
+	collapseButto?.addEventListener('click', () => {
+		const navbarCollapse = document.getElementById('navbarCollapse')
+		navbarCollapse?.classList.toggle('hidden')
+		navbarCollapse?.classList.toggle('flex')
+		const navbarCollapseBackgroudn = document.getElementById('navbarCollapseBackgroudn')
+		navbarCollapseBackgroudn?.classList.toggle('hidden')
+	})
+</script>

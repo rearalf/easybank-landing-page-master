@@ -1,20 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import { Image } from 'astro:assets'
+import BgIntroDesktop from '../assets/bg-intro-desktop.svg'
+import BgIntroMobile from '../assets/bg-intro-mobile.svg'
+import ImageMockups from '../assets/image-mockups.png'
+import Navbar from '../components/Navbar.astro'
+import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="Welcome to Astro.">
+	<Navbar />
 	<main>
-	<!-- 	  Home
-  About
-  Contact
-  Blog
-  Careers
+		<Image
+			src={BgIntroMobile}
+			alt="Descripción de la imagen"
+			class="w-screen h-[480px] absolute z-[-1] top-0 left-0 lg:hidden"
+		/>
+		<Image src={BgIntroDesktop} alt="Descripción de la imagen" class="hidden lg:flex " />
 
-  Request Invite
+		<Image src={ImageMockups} alt="Image Mockups" class="absolute z-[-1] left-0 -top-[5.4rem]"/>
 
-
-
+		<!-- 	  
   Next generation digital banking
 
   Take your financial life online. Your Easybank account will be a one-stop-shop 
@@ -99,5 +104,11 @@ import Card from '../components/Card.astro';
 		font-size: 20px;
 		line-height: 1.6;
 	}
-	
+	.attribution {
+		font-size: 11px;
+		text-align: center;
+	}
+	.attribution a {
+		color: hsl(228, 45%, 44%);
+	}
 </style>
